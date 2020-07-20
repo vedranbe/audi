@@ -1,0 +1,47 @@
+/**
+ * Font-faces
+*/
+
+/* RobotoCondensed */
+@include font-face(
+  "RobotoCondensedRegular",
+  "RobotoCondensed/RobotoCondensed-Regular",
+  normal,
+  normal
+);
+
+@include font-face(
+  "RobotoCondensedItalic",
+  "RobotoCondensed/RobotoCondensed-Italic",
+  italic,
+  normal
+);
+
+@include font-face(
+  "RobotoCondensedBold",
+  "RobotoCondensed/RobotoCondensed-Bold",
+  normal,
+  bold
+);
+
+/* Montserrat */
+@include font-face(
+  "MontserratRegular",
+  "Montserrat/Montserrat-Regular",
+  normal,
+  normal
+);
+
+@include font-face(
+  "MontserratItalic",
+  "Montserrat/Montserrat-Italic",
+  italic,
+  normal
+);
+
+@include font-face(
+  "MontserratBold",
+  "Montserrat/Montserrat-Bold",
+  normal,
+  bold
+);

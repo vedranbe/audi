@@ -1,0 +1,945 @@
+/**
+ * styles.scss
+ * ---
+ * Main `sass` file. Import here `sass` files
+ */
+
+/**
+ * Variables
+ */
+$font-size-base: 140%;
+$line-height-base: 1.5;
+
+$white: #ffffff;
+$black: #000000;
+$mainColor: #212121;
+$body-bg: #ffffff;
+$red: #fa2a2a;
+$lightGrey: #ccc5c5;
+$lighterGrey: #929aad;
+$dropdownBg: #262626;
+$green: rgba(1, 31, 5, 0.95);
+$placeholder: #9b9c9d;
+$darkGrey: #333333;
+
+$wrapper-width: 1440px;
+$container-width: 1140px;
+
+$padding-horizontal-base: 5px;
+$padding-vertical-base: 5px;
+$margin-horizontal-base: 5px;
+$margin-vertical-base: 5px;
+$margin-horizontal-large: 15px;
+$margin-vertical-large: 15px;
+
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+// Modules
+@import "modules/mixins";
+@import "modules/fonts";
+
+// Partials
+@import "partials/reset";
+@import "partials/wordpress";
+@import "partials/utils";
+@import "partials/print";
+@import "partials/mediaqueries";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include reset-box;
+  background: $body-bg;
+  position: relative;
+  min-height: 100vh;
+  font-family: "MonserratRegular", sans-serif;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  @include transition(all 0.5s ease);
+}
+
+ul {
+  @include unlist();
+}
+
+.wrapper {
+  max-width: $wrapper-width;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.container {
+  max-width: $container-width;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  .flex {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+/* TYPOGRAPHY */
+h1,
+h2,
+h3,
+h4 {
+  @include margin(0px, 0px, 20px, 0px);
+  @include transition(all 0.5s ease);
+  font-family: "MontserratRegular", sans-serif;
+}
+h1,
+h2 {
+  font-family: "MontserratBold", sans-serif;
+  @include margin(0px, 0px, 40px, 0px);
+  @include screen(med) {
+    @include margin(0px, 0px, 20px, 0px);
+  }
+}
+
+h5 {
+  font-family: "RobotoCondensedRegular", sans-serif;
+  font-weight: normal;
+  color: $red;
+  text-transform: uppercase;
+  @include margin(5px, null, 5px, null);
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 5px;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 58px;
+  @include screen(med) {
+    font-size: calc(48px * 0.8);
+    line-height: calc(58px * 0.8);
+  }
+  @include screen(med-small) {
+    font-size: calc(48px * 0.7);
+    line-height: calc(58px * 0.7);
+  }
+  @include screen(small) {
+    font-size: calc(48px * 0.6);
+    line-height: calc(58px * 0.6);
+  }
+}
+
+h2 {
+  font-size: 38px;
+  line-height: 48px;
+  @include screen(med) {
+    font-size: calc(38px * 0.8);
+    line-height: calc(48px * 0.8);
+  }
+  @include screen(med-small) {
+    font-size: calc(38px * 0.7);
+    line-height: calc(48px * 0.7);
+  }
+  @include screen(small) {
+    font-size: calc(38px * 0.6);
+    line-height: calc(48px * 0.6);
+  }
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 30px;
+  @include screen(med) {
+    font-size: calc(20px * 0.8);
+    line-height: calc(30px * 0.8);
+  }
+  @include screen(med-small) {
+    font-size: calc(20px * 0.7);
+    line-height: calc(30px * 0.7);
+  }
+}
+
+h4 {
+  font-family: "MontserratRegular", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4e4e4e;
+  font-weight: normal;
+  @include screen(med) {
+    font-size: calc(16px * 0.8);
+    line-height: calc(26px * 0.8);
+  }
+}
+
+/* HEADER */
+.header {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  z-index: 100;
+  @include screen(custom, max, 767) {
+    position: fixed;
+    top: -18px;
+  }
+  .header-inner {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    background: $black; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      180deg,
+      $black 0%,
+      $black 75%,
+      transparent 100%
+    );
+    background: linear-gradient(
+      180deg,
+      $black 0%,
+      $black 75%,
+      transparent 100%
+    );
+
+    @include padding(40px, null, 30px, null);
+    @include screen(custom, max, 767) {
+      background: rgba(0, 0, 0, 0.9);
+      @include padding(30px, null, 20px, null);
+    }
+    .logo {
+      margin-top: 5px;
+      margin-left: 40px;
+      float: left;
+      display: flex;
+    }
+  }
+}
+
+/* NAVIGATION */
+.navbar {
+  padding: 0.3rem 1rem;
+}
+nav {
+  .navbar-toggler {
+    margin-right: 20px;
+    outline: 0;
+  }
+  .navbar-collapse {
+    margin-right: 20px;
+  }
+  .navbar-nav {
+    @include unlist();
+    display: inline;
+    text-align: center;
+    font-family: "RobotoCondensedRegular", sans-serif;
+    @include screen(custom, max, 767) {
+      display: block;
+      margin-top: 60px;
+      margin-right: 20px;
+      width: 100%;
+      text-align: right;
+      height: 100vh;
+    }
+    > li {
+      display: inline-block;
+      margin: 0 20px;
+      @include screen(custom, max, 767) {
+        display: block;
+        margin: 0;
+        margin-bottom: 14px;
+      }
+      &:last-child > a {
+        background: $darkGrey;
+        opacity: 1;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        &:before,
+        &:after {
+          display: none;
+        }
+        padding-left: 30px;
+        padding-right: 30px;
+        &:hover {
+          background: $red;
+        }
+        @include screen(custom, max, 767) {
+          background: none;
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+      }
+
+      > a {
+        color: white;
+        opacity: 0.5;
+        position: relative;
+        text-transform: uppercase;
+        text-decoration: none;
+        @include padding(18px, 10px, 18px, 10px);
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 1px;
+        @include screen(custom, max, 767) {
+          @include padding(18px, 0px, 10px, 0px);
+          opacity: 1;
+        }
+
+        &.dropdown-toggle {
+          &:before,
+          &:after {
+            display: none;
+          }
+        }
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 2px;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background-color: $red;
+          opacity: 0;
+        }
+        &:hover,
+        &:focus {
+          opacity: 1;
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+
+      .dropdown-menu {
+        @include unlist();
+        position: absolute;
+        top: 39px;
+        left: 10px;
+        margin-top: -3px;
+        background: $dropdownBg;
+        border-radius: 0;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-top: 1px solid $red;
+        padding: 0 15px;
+        @include screen(custom, max, 767) {
+          top: 0;
+          margin-top: 0px;
+          margin-bottom: 15px;
+          padding-right: 10px;
+          position: relative;
+          display: block !important;
+          border: none;
+          background: none;
+          text-align: right;
+        }
+        > li {
+          text-align: left;
+          display: block;
+          @include screen(custom, max, 767) {
+            text-align: right;
+          }
+          > a {
+            text-decoration: none;
+            font-size: 13px;
+            line-height: 15px;
+            letter-spacing: 0.5px;
+            padding: 12px 0;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            display: block;
+            @include screen(custom, max, 767) {
+              opacity: 1;
+              display: inline-block;
+              border: none;
+            }
+            &:hover {
+              background: none;
+              color: $red;
+              @include screen(custom, max, 767) {
+                opacity: 1;
+              }
+            }
+          }
+          &:last-child a {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}
+.hamburger {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  display: none;
+  padding: 10px;
+  @include screen(custom, max, 767) {
+    display: block;
+  }
+  .hamburger-inner,
+  .hamburger-inner::after,
+  .hamburger-inner::before {
+    background: $white;
+  }
+}
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::after,
+.hamburger.is-active .hamburger-inner::before {
+  background: $white;
+}
+/* SLIDER */
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  opacity: 0;
+  z-index: 10;
+}
+.slides {
+  background: $black;
+  .slick-prev,
+  .slick-next {
+    font-size: 0;
+    line-height: 0;
+
+    position: absolute;
+    top: 50%;
+    z-index: 20;
+
+    display: block;
+
+    width: 50px;
+    height: 50px;
+    padding: 0;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    outline: none;
+
+    @include transition(all 0.5s $easeOutBack);
+
+    @include screen(small) {
+      top: 90%;
+      -webkit-transform: translate(0, -90%);
+      -ms-transform: translate(0, -90%);
+      transform: translate(0, -90%);
+    }
+    @include screen(med) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .slick-prev {
+    border-radius: 0 3px 3px 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.15) url("../images/chevron-left.svg")
+      center center no-repeat;
+    background-size: 7px 13px;
+    &:hover {
+      background: rgba(255, 255, 255, 0.25)
+        url("../images/chevron-left-color.svg") center center no-repeat;
+      background-size: 7px 13px;
+    }
+  }
+  .slick-next {
+    border-radius: 3px 0 0 3px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.15) url("../images/chevron-right.svg")
+      center center no-repeat;
+    background-size: 7px 13px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.25)
+        url("../images/chevron-right-color.svg") center center no-repeat;
+      background-size: 7px 13px;
+    }
+  }
+  .slide {
+    height: 720px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    @include transition(all 0.03s $easeOutBack);
+    @include screen(med) {
+      height: 500px;
+    }
+    @include screen(small) {
+      height: 100vh;
+    }
+    .flex {
+      > div {
+        max-width: 50%;
+        @include screen(med) {
+          max-width: 75%;
+        }
+        @include screen(small) {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* SECTIONS */
+section {
+  position: relative;
+  padding: 150px 0;
+  overflow: hidden;
+  @include screen(med-small) {
+    padding: 120px 0;
+  }
+  @include screen(small) {
+    padding: 80px 0;
+  }
+  &#home {
+    padding: 0;
+  }
+  &#about_us {
+    background: white;
+    .image_about {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-40%, -50%);
+      -ms-transform: translate(-40%, -50%);
+      transform: translate(-40%, -50%);
+      width: 100%;
+      @include screen(med) {
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      @include screen(custom, max, 767) {
+        position: relative;
+        top: auto;
+        left: auto;
+        -webkit-transform: translate(0%, 0%);
+        -ms-transform: translate(0%, 0%);
+        transform: translate(0%, 0%);
+      }
+    }
+    .background {
+      width: 360px;
+      height: 520px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      background: $mainColor;
+      font-style: italic;
+      @include screen(custom, max, 767) {
+        background: none;
+        height: 100%;
+        width: 100%;
+        width: auto;
+        position: relative;
+        top: 10%;
+        left: 0;
+        -webkit-transform: translate(0%, 0%);
+        -ms-transform: translate(0%, 0%);
+        transform: translate(0%, 0%);
+      }
+      .note {
+        font-family: "MontserratItalic", sans-serif;
+        color: white;
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        line-height: 25px;
+        opacity: 60%;
+        @include screen(custom, max, 767) {
+          position: relative;
+          color: $mainColor;
+        }
+        @include screen(custom, max, 600) {
+          bottom: 10px;
+        }
+      }
+    }
+  }
+  &#products {
+    .container {
+      z-index: 2;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .gradient-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      background: -webkit-linear-gradient(90deg, $black 0%, transparent 100%);
+      background: linear-gradient(90deg, $black 0%, transparent 100%);
+    }
+    .features {
+      margin-top: 35px;
+      .feature {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        padding: 25px 20px;
+        margin-bottom: 20px;
+        h5 {
+          letter-spacing: 3px;
+          margin-bottom: 20px;
+        }
+        h3 {
+          font-family: "MontserratBold", sans-serif;
+          font-size: 28px;
+          line-height: 34px;
+          margin-bottom: 10px;
+        }
+        .additional {
+          font-family: "MontserratItalic", sans-serif;
+          color: #fff;
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+
+  &#other_cars {
+    text-align: center;
+    .inner {
+      border: 1px solid #f3f3f5;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      padding: 10px 20px;
+      float: left;
+      width: 100%;
+      margin-top: 20px;
+      &:hover {
+        @include transition(all 0.5s ease);
+        -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+        .buy {
+          a {
+            color: white;
+            background: $red;
+          }
+        }
+      }
+    }
+    .image {
+      min-height: 100px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+    h3 {
+      font-family: "MontserratBold", sans-serif;
+      @include screen(med-small) {
+        font-size: 18px;
+      }
+    }
+    h4 {
+      font-size: 14px;
+      line-height: 26px;
+      margin-bottom: 5px;
+      color: $lighterGrey;
+    }
+    .list {
+      color: $lighterGrey;
+      font-size: 13px;
+      line-height: 30px;
+      text-align: left;
+      margin-bottom: 25px;
+      ul {
+        li {
+          padding-left: 20px;
+          position: relative;
+          &:before {
+            content: url("../images/path.svg");
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+    }
+    .price {
+      float: left;
+      text-align: left;
+      h3 {
+        span {
+          display: block;
+          clear: both;
+          color: $lighterGrey;
+          font-size: 13px;
+          line-height: 13px;
+          font-family: "RobotoCondensedRegular", sans-serif;
+          font-weight: normal;
+        }
+      }
+    }
+    .buy {
+      float: right;
+      margin-top: 3px;
+      a {
+        display: block;
+        background: rgba(250, 42, 42, 0.1);
+        -webkit-border-radius: 17px;
+        border-radius: 17px;
+        width: 80px;
+        line-height: 34px;
+        text-align: center;
+        color: $red;
+        font-family: "RobotoCondensedRegular", sans-serif;
+        text-decoration: none;
+        &:hover {
+          color: white;
+          background: $red;
+        }
+      }
+    }
+  }
+
+  &#contact_us {
+    padding-bottom: 10px;
+    background: rgb(40, 42, 47);
+    background: linear-gradient(
+      135deg,
+      rgba(40, 42, 47, 1) 0%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    h1 {
+      max-width: 90%;
+      position: relative;
+      z-index: 3;
+      @include screen(small) {
+        max-width: 100%;
+      }
+    }
+    .image {
+      position: absolute;
+      left: -200px;
+      top: 300px;
+      z-index: 2;
+      @include screen(med) {
+        z-index: 0;
+        top: 320px;
+        left: -100px;
+      }
+      @include screen(custom, max, 1367) {
+        z-index: 0;
+      }
+    }
+  }
+}
+
+/* FORM */
+.form {
+  background: $green;
+  padding: 48px;
+  font-family: "RobotoCondensedRegular";
+  p {
+    margin-bottom: 0;
+    text-align: center;
+  }
+  input,
+  textarea {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 16px 20px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 26px;
+    color: $white;
+    letter-spacing: 1px;
+    outline: 0;
+    @include transition(all 0.5s ease);
+    &:focus {
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+  }
+  textarea {
+    height: 160px;
+  }
+  input.wpcf7-submit {
+    font-size: 16px;
+    color: white;
+    width: 125px;
+    padding-bottom: 14px;
+    margin: 0 auto;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    background: transparent;
+    @include transition(all 0.5s ease);
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  .wpcf7 form.invalid .wpcf7-response-output,
+  .wpcf7 form.unaccepted .wpcf7-response-output,
+  .wpcf7 form.sent .wpcf7-response-output {
+    color: #fff;
+    font-size: 12px;
+    border-width: 0px;
+    text-align: center;
+    background: $black;
+    margin-bottom: 0;
+  }
+
+  .wpcf7-not-valid-tip {
+    color: $red;
+  }
+
+  .input-placeholder {
+    position: relative;
+    margin-bottom: 25px;
+    .wpcf7-not-valid-tip {
+      font-size: 12px;
+    }
+
+    input:valid + .placeholder {
+      display: none;
+    }
+    &::focus {
+      .placeholder {
+        display: none;
+      }
+    }
+    .placeholder {
+      letter-spacing: 1px;
+      position: absolute;
+      pointer-events: none;
+      top: 17px;
+      left: 21px;
+      margin: auto;
+      color: $placeholder;
+      span {
+        margin-left: 6px;
+        color: $red;
+      }
+    }
+  }
+  div.wpcf7 .ajax-loader {
+    background-image: url("../images/loader.svg");
+    background-size: 32px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    clear: both;
+    position: absolute;
+    right: 70px;
+    bottom: 10px;
+  }
+}
+
+/* OTHER */
+.white {
+  color: white;
+}
+
+.lightgrey {
+  color: $lightGrey;
+}
+
+p.quote {
+  font-family: "MontserratRegular", sans-serif;
+  display: block;
+  color: $lightGrey;
+  border-left: 1px solid $red;
+  @include padding(null, null, null, 30px);
+  max-width: 60%;
+  @include screen(med) {
+    max-width: 75%;
+  }
+  @include screen(small) {
+    max-width: 100%;
+  }
+  @include screen(custom, max, 767) {
+    color: $white;
+  }
+}
+
+.copyright,
+.links a {
+  font-family: "RobotoCondensedRegular", sans-serif;
+  letter-spacing: 1px;
+  color: $white;
+  line-height: 80px;
+  opacity: 0.5;
+  font-size: 14px;
+  margin-left: 25px;
+  text-transform: uppercase;
+  text-decoration: none;
+  &:hover {
+    opacity: 1;
+  }
+  @include screen(custom, max, 767) {
+    line-height: 40px;
+    text-align: center;
+    display: block;
+    margin: 0;
+  }
+}
+.links,
+.copyright {
+  margin-top: 60px !important;
+}
+@include screen(custom, max, 767) {
+  .links {
+    margin-top: 20px !important;
+    margin-bottom: 30px;
+  }
+}
+.copyright {
+  margin: 0;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+#backtotop {
+  border-radius: 3px 3px 0 0;
+  right: -60px;
+  bottom: 0;
+  background: $red url(../images/chevron-up.svg) center center no-repeat;
+  background-size: 15px 28px;
+  font-size: 0;
+  line-height: 0;
+  position: fixed;
+  z-index: 20;
+  display: none;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  cursor: pointer;
+  color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  outline: none;
+  -webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  @include screen(custom, max, 767) {
+    display: none !important;
+  }
+}
