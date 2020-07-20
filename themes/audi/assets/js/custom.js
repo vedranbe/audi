@@ -78,6 +78,8 @@
       cssEase: "linear",
       autoplay: true,
       autoplaySpeed: 5000,
+      swipe: true,
+      touchMove: true,
     });
 
     function parallax(selector) {
