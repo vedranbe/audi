@@ -15,7 +15,7 @@ get_header();
         <?php
             echo '<div class="slides">';
             while ( have_rows( 'slides' ) ) : the_row();
-                echo '<div class="slide" style="background: url('.get_sub_field( 'background' ).') top center no-repeat; background-attachment: fixed; background-size: cover;">';
+                echo '<div class="slide" style="background: url('.get_sub_field( 'background' ).') top center no-repeat; background-attachment: fixed;">';
                 echo '<div class="container flex">'; 
                 echo '<div>';
                 echo '<h5>'.get_sub_field( 'subtitle' ).'</h5>'; 
