@@ -22,7 +22,7 @@
 
     $("ul#menu-main-menu > li").first("a").addClass("active");
 
-    $("ul#menu-main-menu > li > a").live("click", function (event) {
+    $("ul#menu-main-menu > li > a, .logo > a").live("click", function (event) {
       event.preventDefault();
 
       var hash = this.hash;
