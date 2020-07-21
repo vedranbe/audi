@@ -454,6 +454,10 @@ h4 {
   z-index: 2;
   background: #000000;
   /* fallback for old browsers */
+  -webkit-background: -webkit-gradient(linear, left top, left bottom, from(#000000), color-stop(75%, #000000), to(transparent));
+  -webkit-background: linear-gradient(180deg, #000000 0%, #000000 75%, transparent 100%);
+  -moz-background: linear-gradient(180deg, #000000 0%, #000000 75%, transparent 100%);
+  -o-background: linear-gradient(180deg, #000000 0%, #000000 75%, transparent 100%);
   background: -webkit-gradient(linear, left top, left bottom, from(#000000), color-stop(75%, #000000), to(transparent));
   background: linear-gradient(180deg, #000000 0%, #000000 75%, transparent 100%);
   padding-top: 40px;
@@ -549,7 +553,7 @@ nav .navbar-nav > li:last-child > a:hover {
 }
 
 nav .navbar-nav > li > a {
-  color: white;
+  color: #ffffff;
   opacity: 0.5;
   position: relative;
   text-transform: uppercase;
@@ -642,7 +646,7 @@ nav .navbar-nav > li .dropdown-menu > li > a {
   line-height: 15px;
   letter-spacing: 0.5px;
   padding: 12px 0;
-  color: white;
+  color: #ffffff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   display: block;
 }
@@ -706,6 +710,12 @@ nav .navbar-nav > li .dropdown-menu > li:last-child a {
   background: black;
   opacity: 0;
   z-index: 10;
+}
+
+@media screen and (max-width: 767px) {
+  .header-overlay {
+    display: none;
+  }
 }
 
 .slides {
@@ -838,7 +848,7 @@ section#home {
 }
 
 section#about_us {
-  background: white;
+  background: #ffffff;
 }
 
 section#about_us .image_about {
@@ -846,9 +856,9 @@ section#about_us .image_about {
   z-index: 2;
   top: 50%;
   left: 50%;
+  width: 100%;
   -webkit-transform: translate(-40%, -50%);
   transform: translate(-40%, -50%);
-  width: 100%;
 }
 
 @media screen and (max-width: 1175px) {
@@ -897,7 +907,7 @@ section#about_us .background {
 
 section#about_us .background .note {
   font-family: "MontserratItalic", sans-serif;
-  color: white;
+  color: #ffffff;
   position: absolute;
   bottom: 30px;
   width: 100%;
@@ -935,6 +945,10 @@ section#products .gradient-bg {
   right: 0;
   bottom: 0;
   z-index: 1;
+  -webkit-background: -webkit-gradient(linear, left top, right top, from(#000000), to(transparent));
+  -webkit-background: linear-gradient(90deg, #000000 0%, transparent 100%);
+  -moz-background: linear-gradient(90deg, #000000 0%, transparent 100%);
+  -o-background: linear-gradient(90deg, #000000 0%, transparent 100%);
   background: -webkit-gradient(linear, left top, right top, from(#000000), to(transparent));
   background: linear-gradient(90deg, #000000 0%, transparent 100%);
 }
@@ -987,11 +1001,12 @@ section#other_cars .inner:hover {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
 }
 
 section#other_cars .inner:hover .buy a {
-  color: white;
+  color: #ffffff;
   background: #fa2a2a;
 }
 
@@ -1070,7 +1085,7 @@ section#other_cars .buy a {
 }
 
 section#other_cars .buy a:hover {
-  color: white;
+  color: #ffffff;
   background: #fa2a2a;
 }
 
@@ -1152,7 +1167,7 @@ section#contact_us .image {
 
 .form input.wpcf7-submit {
   font-size: 16px;
-  color: white;
+  color: #ffffff;
   width: 125px;
   padding-bottom: 14px;
   margin: 0 auto;
@@ -1227,7 +1242,7 @@ section#contact_us .image {
 
 /* OTHER */
 .white {
-  color: white;
+  color: #ffffff;
 }
 
 .lightgrey {
@@ -1313,7 +1328,7 @@ p.quote {
   border-radius: 3px 3px 0 0;
   right: -60px;
   bottom: 0;
-  background: #fa2a2a url(../images/chevron-up.svg) center center no-repeat;
+  background: #fa2a2a url("../images/chevron-up.svg") center center no-repeat;
   background-size: 15px 28px;
   font-size: 0;
   line-height: 0;

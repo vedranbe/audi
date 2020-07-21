@@ -198,19 +198,10 @@ h4 {
     width: 100%;
     z-index: 2;
     background: $black; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      180deg,
-      $black 0%,
-      $black 75%,
-      transparent 100%
+    @include crossBrowser(
+      background,
+      linear-gradient(180deg, $black 0%, $black 75%, transparent 100%)
     );
-    background: linear-gradient(
-      180deg,
-      $black 0%,
-      $black 75%,
-      transparent 100%
-    );
-
     @include padding(40px, null, 30px, null);
     @include screen(custom, max, 767) {
       background: rgba(0, 0, 0, 0.9);
@@ -261,8 +252,7 @@ nav {
       &:last-child > a {
         background: $darkGrey;
         opacity: 1;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
+        @include crossBrowser(border-radius, 3px);
         &:before,
         &:after {
           display: none;
@@ -280,7 +270,7 @@ nav {
       }
 
       > a {
-        color: white;
+        color: $white;
         opacity: 0.5;
         position: relative;
         text-transform: uppercase;
@@ -327,7 +317,7 @@ nav {
         left: 10px;
         margin-top: -3px;
         background: $dropdownBg;
-        border-radius: 0;
+        @include crossBrowser(border-radius, 0);
         border: 1px solid rgba(255, 255, 255, 0.25);
         border-top: 1px solid $red;
         padding: 0 15px;
@@ -354,7 +344,7 @@ nav {
             line-height: 15px;
             letter-spacing: 0.5px;
             padding: 12px 0;
-            color: white;
+            color: $white;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             display: block;
             @include screen(custom, max, 767) {
@@ -408,6 +398,9 @@ nav {
   background: rgb(0, 0, 0);
   opacity: 0;
   z-index: 10;
+  @include screen(custom, max, 767) {
+    display: none;
+  }
 }
 .slides {
   background: $black;
@@ -436,9 +429,7 @@ nav {
 
     @include screen(small) {
       top: 90%;
-      -webkit-transform: translate(0, -90%);
-      -ms-transform: translate(0, -90%);
-      transform: translate(0, -90%);
+      @include crossBrowser(transform, translate(0, -90%));
     }
     @include screen(med) {
       width: 40px;
@@ -512,28 +503,23 @@ section {
     padding: 0;
   }
   &#about_us {
-    background: white;
+    background: $white;
     .image_about {
       position: absolute;
       z-index: 2;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-40%, -50%);
-      -ms-transform: translate(-40%, -50%);
-      transform: translate(-40%, -50%);
       width: 100%;
+      @include crossBrowser(transform, translate(-40%, -50%));
+
       @include screen(med) {
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+        @include crossBrowser(transform, translate(-50%, -50%));
       }
       @include screen(custom, max, 767) {
         position: relative;
         top: auto;
         left: auto;
-        -webkit-transform: translate(0%, 0%);
-        -ms-transform: translate(0%, 0%);
-        transform: translate(0%, 0%);
+        @include crossBrowser(transform, translate(0%, 0%));
       }
     }
     .background {
@@ -542,9 +528,7 @@ section {
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+      @include crossBrowser(transform, translate(-50%, -50%));
       z-index: 1;
       background: $mainColor;
       font-style: italic;
@@ -556,13 +540,11 @@ section {
         position: relative;
         top: 10%;
         left: 0;
-        -webkit-transform: translate(0%, 0%);
-        -ms-transform: translate(0%, 0%);
-        transform: translate(0%, 0%);
+        @include crossBrowser(transform, translate(0%, 0%));
       }
       .note {
         font-family: "MontserratItalic", sans-serif;
-        color: white;
+        color: $white;
         position: absolute;
         bottom: 30px;
         width: 100%;
@@ -594,8 +576,10 @@ section {
       right: 0;
       bottom: 0;
       z-index: 1;
-      background: -webkit-linear-gradient(90deg, $black 0%, transparent 100%);
-      background: linear-gradient(90deg, $black 0%, transparent 100%);
+      @include crossBrowser(
+        background,
+        linear-gradient(90deg, $black 0%, transparent 100%)
+      );
     }
     .features {
       margin-top: 35px;
@@ -629,20 +613,18 @@ section {
     text-align: center;
     .inner {
       border: 1px solid #f3f3f5;
-      -webkit-border-radius: 3px;
-      border-radius: 3px;
+      @include crossBrowser(border-radius, 3px);
       padding: 10px 20px;
       float: left;
       width: 100%;
       margin-top: 20px;
       &:hover {
         @include transition(all 0.5s ease);
-        -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
-        -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
-        box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+        @include crossBrowser(box-shadow, 0px 0px 25px 0px rgba(0, 0, 0, 0.1));
+
         .buy {
           a {
-            color: white;
+            color: $white;
             background: $red;
           }
         }
@@ -704,8 +686,7 @@ section {
       a {
         display: block;
         background: rgba(250, 42, 42, 0.1);
-        -webkit-border-radius: 17px;
-        border-radius: 17px;
+        @include crossBrowser(border-radius, 17px);
         width: 80px;
         line-height: 34px;
         text-align: center;
@@ -713,7 +694,7 @@ section {
         font-family: "RobotoCondensedRegular", sans-serif;
         text-decoration: none;
         &:hover {
-          color: white;
+          color: $white;
           background: $red;
         }
       }
@@ -766,8 +747,7 @@ section {
   textarea {
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
+    @include crossBrowser(border-radius, 3px);
     padding: 16px 20px;
     width: 100%;
     font-size: 14px;
@@ -785,7 +765,7 @@ section {
   }
   input.wpcf7-submit {
     font-size: 16px;
-    color: white;
+    color: $white;
     width: 125px;
     padding-bottom: 14px;
     margin: 0 auto;
@@ -856,7 +836,7 @@ section {
 
 /* OTHER */
 .white {
-  color: white;
+  color: $white;
 }
 
 .lightgrey {
@@ -923,7 +903,7 @@ p.quote {
   border-radius: 3px 3px 0 0;
   right: -60px;
   bottom: 0;
-  background: $red url(../images/chevron-up.svg) center center no-repeat;
+  background: $red url("../images/chevron-up.svg") center center no-repeat;
   background-size: 15px 28px;
   font-size: 0;
   line-height: 0;
@@ -937,8 +917,11 @@ p.quote {
   color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.25);
   outline: none;
-  -webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  @include crossBrowser(
+    transition,
+    all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+  );
+
   @include screen(custom, max, 767) {
     display: none !important;
   }
