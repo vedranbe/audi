@@ -266,6 +266,13 @@ nav {
           background: none;
           padding-left: 0px;
           padding-right: 0px;
+          &:hover {
+            background: none;
+          }
+          &:before,
+          &:after {
+            display: block;
+          }
         }
       }
 

@@ -550,6 +550,12 @@ nav .navbar-nav > li:last-child > a:hover {
     padding-left: 0px;
     padding-right: 0px;
   }
+  nav .navbar-nav > li:last-child > a:hover {
+    background: none;
+  }
+  nav .navbar-nav > li:last-child > a:before, nav .navbar-nav > li:last-child > a:after {
+    display: block;
+  }
 }
 
 nav .navbar-nav > li > a {
