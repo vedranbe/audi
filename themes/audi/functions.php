@@ -309,3 +309,58 @@ function auto_copyright($year = 'auto') {
     if(intval($year) < date('Y')){ echo intval($year) . ' - ' . date('Y'); }
     if(intval($year) > date('Y')){ echo date('Y'); } 
 }
+
+// CPT Vehicles
+function cpt_vehicles() {
+
+	$labels = array(
+		'name'                  => _x( 'Vehicles', 'Post Type General Name', 'audi' ),
+		'singular_name'         => _x( 'Vehicle', 'Post Type Singular Name', 'audi' ),
+		'menu_name'             => __( 'Vehicles', 'audi' ),
+		'name_admin_bar'        => __( 'Vehicles', 'audi' ),
+		'archives'              => __( 'Item Archives', 'audi' ),
+		'attributes'            => __( 'Item Attributes', 'audi' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'audi' ),
+		'all_items'             => __( 'All Items', 'audi' ),
+		'add_new_item'          => __( 'Add New Item', 'audi' ),
+		'add_new'               => __( 'Add New', 'audi' ),
+		'new_item'              => __( 'New Item', 'audi' ),
+		'edit_item'             => __( 'Edit Item', 'audi' ),
+		'update_item'           => __( 'Update Item', 'audi' ),
+		'view_item'             => __( 'View Item', 'audi' ),
+		'view_items'            => __( 'View Items', 'audi' ),
+		'search_items'          => __( 'Search Item', 'audi' ),
+		'not_found'             => __( 'Not found', 'audi' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'audi' ),
+		'featured_image'        => __( 'Featured Image', 'audi' ),
+		'set_featured_image'    => __( 'Set featured image', 'audi' ),
+		'remove_featured_image' => __( 'Remove featured image', 'audi' ),
+		'use_featured_image'    => __( 'Use as featured image', 'audi' ),
+		'insert_into_item'      => __( 'Insert into item', 'audi' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'audi' ),
+		'items_list'            => __( 'Items list', 'audi' ),
+		'items_list_navigation' => __( 'Items list navigation', 'audi' ),
+		'filter_items_list'     => __( 'Filter items list', 'audi' ),
+	);
+	$args = array(
+		'label'                 => __( 'Vehicle', 'audi' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 20,
+		'menu_icon'             => 'dashicons-admin-network',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => false,
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'vehicle', $args );
+
+}
+add_action( 'init', 'cpt_vehicles', 0 );

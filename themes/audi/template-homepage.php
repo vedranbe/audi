@@ -105,33 +105,37 @@ get_header();
             </div>
         </section>
         <section id="other_cars">
-        <?php if ( have_rows( 'other_cars' ) ) : ?>
-            <!-- OTHER CARS -->
+        
+            <?php 
+                $vehicles = get_field( 'vehicles' );
+                if ( $vehicles ):
+            ?>
+            <!-- VEHICLES -->
             <div class="container">
-                    <?php while ( have_rows( 'other_cars' ) ) : the_row(); 
-                        echo '<h2 class="text-center">'.get_sub_field( 'title' ).'</h2>'; 
-                        if ( have_rows( 'vehicles' ) ) : 
-                            echo '<div class="row">';
-                            while ( have_rows( 'vehicles' ) ) : the_row(); 
-                                echo '<div class="col-lg-3 col-sm-6">';
-                                echo '<div class="inner">';
-                                if ( get_sub_field( 'image' ) ) { 
-                                    echo '<div class="image">';
-                                    echo '<img src="'.get_sub_field( 'image' ).'" />';
-                                    echo '</div>';
-                                } 
-                                echo '<h4>'.get_sub_field( 'subtitle' ).'</h4>'; 
-                                echo '<h3>'.get_sub_field( 'title' ).'</h3>'; 
-                                echo '<div class="list">'.get_sub_field( 'text' ).'</div>';
-                                echo '<div class="price">';
-                                echo '<h3><span>Starting from</span>'.get_sub_field( 'price' ).'</h3>'; 
-                                echo '</div>';
-                                echo '<div class="buy"><a href="#">Buy now</a></div>';
-                                echo '</div>';
-                                echo '</div>';
-                            endwhile;
-                        endif;
-                    endwhile; ?>
+            <?php echo '<h2 class="text-center">'.get_field( 'title_vehicles' ).'</h2>'; ?>
+                <div class="row">
+                    <?php 
+                    foreach ( $vehicles as $post ): 
+                        setup_postdata ( $post );
+                            $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'small' );
+
+                            echo '<div class="col-lg-3 col-sm-6">';
+                            echo '<div class="inner">';
+                            echo '<div class="image">';
+                            echo '<img src="'.$image[0].'" />';
+                            echo '</div>';
+                            echo '<h4>'.get_field( 'subtitle' ).'</h4>';
+                            echo '<h3 class="text-center">'.get_the_title().'</h3>';
+                            echo '<div class="list">'.get_field( 'list' ).'</div>';
+                            echo '<div class="price">';
+                            echo '<h3><span>Starting from</span>'.get_field( 'price' ).'</h3>'; 
+                            echo '</div>';
+                            echo '<div class="buy"><a href="#">Buy now</a></div>';
+                            echo '</div>';
+                            echo '</div>';
+                    endforeach;
+                    wp_reset_postdata();
+                    ?>
                 </div>
             </div>
         <?php endif; ?>
