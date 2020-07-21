@@ -90,9 +90,6 @@ function audi_styles()
     wp_register_style('theme_styles', AUDI_URI . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('theme_styles'); // Enqueue it!
 
-    wp_register_style('fontawesome', AUDI_ASSETS . '/fontawesome/css/font-awesome.min.css', array(), '4.7.0', 'all');
-    wp_enqueue_style('fontawesome'); // Enqueue it!
-
     wp_register_style('hamburger', AUDI_CSS . '/hamburgers.min.css', array(), '1.0', 'all');
     wp_enqueue_style('hamburger'); // Enqueue it!
 
