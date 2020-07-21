@@ -19,7 +19,7 @@ get_header();
                 echo '<div class="container flex">'; 
                 echo '<div>';
                 echo '<h5>'.get_sub_field( 'subtitle' ).'</h5>'; 
-                echo '<h2 class="white">'.get_sub_field( 'title' ).'</h2>'; 
+                echo '<h1 class="white">'.get_sub_field( 'title' ).'</h1>'; 
                 echo '<p class="quote">'.get_sub_field( 'text' ).'</p>';
                 echo '</div>';
                 echo '</div>';
