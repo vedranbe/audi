@@ -1,9 +1,6 @@
 # Audi WP tema
 ## Baza podataka
-audi_3009.sql se nalazi u root-u. Potrebno je samo izmjeniti putanju koja je http://localhost/audi u onu koja vama odgovara.
-
-## Username i password za WP
-Nalaze se u fajlu up.txt (root).
+audi_3009.sql se nalazi u root-u. Potrebno je samo izmjeniti putanju koja je http://localhost/audi u onu koja vama odgovara.).
 
 ## Plugin-i
 Potrebna su 4 plugin-a koji se nalaze u plugin folderu.
