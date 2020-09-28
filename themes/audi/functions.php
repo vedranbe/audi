@@ -1,7 +1,7 @@
 <?php
 /*
  *  Author: Vedran Bejatovic
- *  URL: audi.cochm | @audi
+ *  URL: www.linkedin.com/in/vedranbe | @linkedin
  *  Custom functions, support and more.
  */
 
