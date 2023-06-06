@@ -12,7 +12,4 @@ You need 4 plugins located in the plugin folder.
 ## Admin menu
 Posts and Comments have been removed from the admin menu.
 
-## Live preview
-The finished theme was also published at http://vedran.co.za.dedi642.your-server.de/
-
 That's it. I hope you like it!
