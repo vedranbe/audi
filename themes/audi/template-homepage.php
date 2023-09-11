@@ -60,8 +60,9 @@ get_header();
             </div>
         </section>
         <?php endif; ?>
-
-        <?php if ( have_rows( 'featured' ) ) : 
+        <?php 
+                       
+        if ( have_rows( 'featured' ) ) : 
             while ( have_rows( 'featured' ) ) : the_row();
                 $background = get_sub_field( 'background' );
             endwhile;

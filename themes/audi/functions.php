@@ -1,7 +1,7 @@
 <?php
 /*
  *  Author: Vedran Bejatovic
- *  URL: www.linkedin.com/in/vedranbe | @linkedin
+ *  URL: audi.cochm | @audi
  *  Custom functions, support and more.
  */
 
@@ -79,7 +79,7 @@ function audi_header_scripts()
         wp_register_script('slick', AUDI_JS . '/slick.min.js', array('jquery'), '1.8.1', 'all'); // Slick slider
         wp_enqueue_script('slick'); // Enqueue it!
 
-        wp_register_script('custom', AUDI_JS . '/custom.min.js', array('jquery'), '1.0.0', 'all'); // Custom scripts
+        wp_register_script('custom', AUDI_JS . '/custom.js', array('jquery'), '1.0.0', 'all'); // Custom scripts
         wp_enqueue_script('custom'); // Enqueue it!
     }
 }
@@ -361,3 +361,17 @@ function cpt_vehicles() {
 
 }
 add_action( 'init', 'cpt_vehicles', 0 );
+
+// COOKIE
+
+add_action('init', 'show_content');
+
+// my_setcookie() set the cookie on the domain and directory WP is installed on
+function show_content(){
+  $path = parse_url(get_option('siteurl'), PHP_URL_PATH);
+  $host = parse_url(get_option('siteurl'), PHP_URL_HOST);
+  $expiry = strtotime('+1 month');
+  if(isset($_GET['user'])) {
+    setcookie('show_content', 'true', $expiry, $path, $host);
+    }
+}
