@@ -1,6 +1,6 @@
 # Audi WP Theme
 ## Database
-audi_3009.sql is in the root folder. All you need is to change the path http://localhost/audi to the one that suits you.).
+audi_3009.sql is in the root folder. All you need is to change the path http://audi.local to the one that suits you.).
 
 ## Plugins
 You need 4 plugins located in the plugin folder.
